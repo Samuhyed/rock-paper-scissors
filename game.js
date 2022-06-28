@@ -12,11 +12,13 @@ function computerPlay(arr) {
     const item = arr[randomSelect];
     return item;
 }
-const result = computerPlay(array);
-console.log(result);
+//const result = computerPlay(array);
+//console.log(result);
 
 let playerSelection;
-let computerSelection = result;
+let computerSelection;
+let playerScore;
+let computerScore;
 
 //logic to determine win condition
 function playRound(playerSelection, computerSelection) {
@@ -38,12 +40,20 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
+playerScore = 0;
+computerScore = 0;
+
 //play 5 rounds
 function game() {
     for (let i = 0; i < 5; i++) {
         playerSelection = prompt("Please select rock, paper, or scissors:").toLowerCase();
-        computerPlay(array);
+        computerSelection = computerPlay(array);
+        console.log("Computer chose " + computerSelection + ".");
+        console.log("Player chose " + playerSelection + ".");
         playRound(playerSelection, computerSelection);
+
+        console.log("Player Score: " + playerScore);
+        console.log("Computer score: " + computerScore);
     }
 }
 
