@@ -43,7 +43,7 @@ function playRound(playerSelection, computerSelection) {
 
 //play rounds until player or computer reaches 5
 function game() {
-    for (let i = 0; i < 20; i++) {
+    for (let i = 0; i < 50; i++) {
         if (playerScore === winningScore) {
             console.log("Player wins the game!");
         } else if (computerScore === winningScore) {
