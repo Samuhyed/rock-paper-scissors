@@ -17,8 +17,9 @@ function computerPlay(arr) {
 
 let playerSelection;
 let computerSelection;
-let playerScore;
-let computerScore;
+let playerScore = 0;
+let computerScore = 0;
+const winningScore = 5;
 
 //logic to determine win condition
 function playRound(playerSelection, computerSelection) {
@@ -27,34 +28,38 @@ function playRound(playerSelection, computerSelection) {
         return 'tie';
     } else if (playerSelection === 'rock' && computerSelection === 'scissors') {
         console.log("Player wins, " + playerSelection + " beats " + computerSelection + "!");
-        return 'win';
+        return playerScore++;
     } else if (playerSelection === 'paper' && computerSelection === 'rock') {
         console.log("Player wins, " + playerSelection + " beats " + computerSelection + "!");
-        return 'win';
+        return playerScore++;
     } else if (playerSelection === 'scissors' && computerSelection === 'paper') {
         console.log("Player wins, " + playerSelection + " beats " + computerSelection + "!");
-        return 'win';
+        return playerScore++;
     } else {
         console.log("You lose, " + computerSelection + " beats " + playerSelection + "!");
-        return 'lose';
+        return computerScore++;
     }
 }
 
-playerScore = 0;
-computerScore = 0;
-
-//play 5 rounds
+//play rounds until player or computer reaches 5
 function game() {
-    for (let i = 0; i < 5; i++) {
-        playerSelection = prompt("Please select rock, paper, or scissors:").toLowerCase();
-        computerSelection = computerPlay(array);
-        console.log("Computer chose " + computerSelection + ".");
-        console.log("Player chose " + playerSelection + ".");
-        playRound(playerSelection, computerSelection);
-
-        console.log("Player Score: " + playerScore);
-        console.log("Computer score: " + computerScore);
+    for (let i = 0; i < 20; i++) {
+        if (playerScore === winningScore) {
+            console.log("Player wins the game!");
+        } else if (computerScore === winningScore) {
+            console.log("Computer wins the game!");
+        } else {
+            playerSelection = prompt("Please select rock, paper, or scissors:").toLowerCase();
+            computerSelection = computerPlay(array);
+            console.log("Computer chose " + computerSelection + ".");
+            console.log("Player chose " + playerSelection + ".");
+            playRound(playerSelection, computerSelection);
+            console.log("Player Score: " + playerScore);
+            console.log("Computer score: " + computerScore);
+        }
     }
+
+
 }
 
 game();
