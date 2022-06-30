@@ -56,7 +56,7 @@ function game() {
             //console.log("Player chose " + playerSelection + ".");
             playRound(playerSelection, computerSelection);
             console.log("Player Score: " + playerScore + " | " + "Computer Score: " + computerScore);
-            console.log("----------------------------------------------")
+            console.log("-----------------------------------------------")
         }
     }
 
