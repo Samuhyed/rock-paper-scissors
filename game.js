@@ -22,7 +22,7 @@ let computerScore = 0;
 let tie = 0;
 const winningScore = 5;
 
-//logic to determine win condition
+//logic to determine win/loss/tie condition
 function playRound(playerSelection, computerSelection) {
     if (playerSelection === computerSelection) {
         console.log("It's a tie!");
@@ -42,7 +42,7 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-//play rounds until player or computer reaches 5
+//play rounds until player or computer reaches score 5
 function game() {
     for (let i = 0; i < 50; i++) {
         if (playerScore === winningScore) {
@@ -52,14 +52,13 @@ function game() {
         } else {
             playerSelection = prompt("Please select rock, paper, or scissors:").toLowerCase();
             computerSelection = computerPlay(array);
-            console.log("Computer chose: " + computerSelection + ". " + "Player chose: " + playerSelection + ".");
+            console.log("Computer chose: " + computerSelection + " | " + "Player chose: " + playerSelection);
             //console.log("Player chose " + playerSelection + ".");
             playRound(playerSelection, computerSelection);
             console.log("Player Score: " + playerScore + " | " + "Computer Score: " + computerScore);
             console.log("-----------------------------------------------")
         }
     }
-
 
 }
 
